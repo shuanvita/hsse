@@ -10,8 +10,10 @@ const openMenu = ref<string | null>(null)
 onClickOutside(navElement, () => { openMenu.value = null })
 onKeyStroke('Escape', () => {
   if (!openMenu.value) return
+  if (document.activeElement instanceof HTMLElement && navElement.value?.contains(document.activeElement)) {
+    document.activeElement.blur()
+  }
   openMenu.value = null
-  navElement.value?.querySelector<HTMLButtonElement>('[aria-controls="header-programs-menu"]')?.focus()
 })
 
 function onFocusOut(event: FocusEvent) {
@@ -21,8 +23,8 @@ function onFocusOut(event: FocusEvent) {
 
 <template>
   <nav ref="navElement" @focusout="onFocusOut">
-    <ul class="header-nav">
-      <li v-for="item in nav" :key="item.text" class="header-nav__item">
+    <ul class="flex items-center gap-6">
+      <li v-for="item in nav" :key="item.text" class="relative whitespace-nowrap leading-none">
         <template v-if="item.isDropdown && item.dropdownMenu?.length">
           <UiAction
             variant="link"
@@ -42,17 +44,17 @@ function onFocusOut(event: FocusEvent) {
           <div
             v-if="openMenu === item.text"
             id="header-programs-menu"
-            class="header-nav__menu"
+            class="absolute top-full left-0 z-40 mt-4 w-[340px] rounded-lg border border-stroke bg-primary p-2 whitespace-normal shadow-[0_25px_50px_-12px_rgb(0_0_0_/_25%)]"
           >
             <NuxtLink
               v-for="entry in item.dropdownMenu"
               :key="entry.link"
               :to="entry.link"
-              class="header-nav__entry"
+              class="flex flex-col items-start gap-1.5 rounded-md px-3 py-2.5 text-left hover:bg-primary-lighter"
               @click="openMenu = null"
             >
-              <span class="header-nav__over-title">{{ entry.overTitle }}</span>
-              <span class="header-nav__title">{{ entry.text }}</span>
+              <span class="text-[10px] leading-[1.4] text-foreground-muted uppercase">{{ entry.overTitle }}</span>
+              <span class="text-sm leading-[1.35] text-foreground">{{ entry.text }}</span>
             </NuxtLink>
           </div>
         </template>
@@ -64,12 +66,3 @@ function onFocusOut(event: FocusEvent) {
   </nav>
 </template>
 
-<style scoped>
-.header-nav { display: flex; align-items: center; gap: 24px; }
-.header-nav__item { position: relative; white-space: nowrap; }
-.header-nav__menu { position: absolute; top: 100%; left: 0; z-index: 40; margin-top: 16px; width: 340px; padding: 8px; border: 1px solid var(--color-stroke); border-radius: 8px; background: var(--color-primary); box-shadow: 0 25px 50px -12px rgb(0 0 0 / 25%); white-space: normal; }
-.header-nav__entry { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 10px 12px; border-radius: 6px; text-align: left; }
-.header-nav__entry:hover { background: var(--color-primary-lighter); }
-.header-nav__over-title { color: var(--color-foreground-muted); font-size: 10px; line-height: 1.4; text-transform: uppercase; }
-.header-nav__title { color: var(--color-foreground); font-size: 14px; line-height: 1.35; }
-</style>
