@@ -15,7 +15,11 @@ export default defineNuxtConfig({
   },
 
   fonts: {
-    families: [{ name: 'Montserrat', weights: [300, 400, 500, 600, 700, 800, 900] }],
+    families: [
+      { name: 'Manrope Variable', weights: [200, 300, 400, 500, 600, 700, 800] },
+      { name: 'IBM Plex Mono', weights: [300, 400, 500, 600, 700] },
+      { name: 'RF Dewi Extended', weights: [300, 400, 500, 600, 700] },
+    ],
   },
 
   srcDir: './src',
@@ -31,9 +35,6 @@ export default defineNuxtConfig({
 
   vite: {
     plugins: [tailwindcss()],
-    build: {
-      cssCodeSplit: true,
-    },
     optimizeDeps: {
       include: ['@vue/devtools-core', '@vue/devtools-kit'],
     },
@@ -47,5 +48,6 @@ export default defineNuxtConfig({
 
   image: {
     format: ['webp'],
+    domains: ['hsse.mipt.ru'],
   },
 })
