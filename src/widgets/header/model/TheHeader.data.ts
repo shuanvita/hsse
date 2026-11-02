@@ -4,41 +4,61 @@ export const TheHeaderData: TheHeaderProps = {
   logos: [
     {
       link: '/',
-      image: 'hsse-logo'
+      image: 'hsse-logo',
+      ariaLabel: 'На главную'
     },
     {
       link: 'https://mipt.ru',
-      image: 'mipt-logo'
+      image: 'mipt-logo',
+      ariaLabel: 'Сайт МФТИ'
     }
   ],
   nav: [
     {
-      link: '',
-      text: 'Программы'
+      link: '#',
+      text: 'Программы',
+      isDropdown: true,
+      dropdownMenu: [
+        {
+          overTitle: 'Базовое высшее образование',
+          link: '/bachelor/software-systems',
+          text: 'Программа «Разработка программно-информационных систем»',
+        },
+        {
+          overTitle: 'Базовое высшее образование',
+          link: '/bachelor/cybersecurity',
+          text: 'Программа «Разработка систем кибербезопасности и реинжиниринг киберфизических систем»',
+        },
+        {
+          overTitle: 'Специализированное высшее образование',
+          link: '/master',
+          text: 'Программа «Распределённые системы и искусственный интеллект»',
+        },
+      ],
     },
     {
-      link: '',
+      link: '#',
       text: 'О ВШПИ'
     },
     {
-      link: '',
+      link: '#',
       text: 'Программа обучения'
     },
     {
-      link: '',
+      link: '#',
       text: 'Команда и менторы'
     },
     {
-      link: '',
+      link: '#',
       text: 'Как поступить'
     },
     {
-      link: '',
+      link: '#',
       text: 'Контакты'
     }
   ],
   cta: {
-    link: '',
+    link: '#',
     text: 'Задать вопрос',
   }
 }

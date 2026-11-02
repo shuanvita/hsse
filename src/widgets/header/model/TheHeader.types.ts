@@ -2,6 +2,7 @@ export interface TheHeaderProps {
   logos: {
     link: string;
     image: string;
+    ariaLabel?: string;
   }[]
   nav: {
     link: string;
