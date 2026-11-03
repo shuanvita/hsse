@@ -23,7 +23,7 @@ function onSlideChange(event: Event) {
     <div class="md:hidden">
       <ClientOnly>
         <swiper-container ref="containerRef" @swiperslidechange="onSlideChange">
-          <swiper-slide v-for="item in items" :key="item.title">
+          <swiper-slide v-for="item in items" :key="item.title" class="h-auto">
             <AdvantageCard v-bind="item" />
           </swiper-slide>
         </swiper-container>
