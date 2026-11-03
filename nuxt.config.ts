@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/scripts', '@vueuse/nuxt/module', 'nuxt-svgo', 'nuxt-swiper'],
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  typescript: { typeCheck: true },
 
   nitro: {
     prerender: {
