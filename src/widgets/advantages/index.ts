@@ -1,0 +1,1 @@
+export { default as AdvantagesBlock } from './ui/AdvantagesBlock.vue'
