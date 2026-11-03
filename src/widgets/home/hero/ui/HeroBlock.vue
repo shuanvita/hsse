@@ -25,7 +25,7 @@ defineProps<HeroBlockProps>()
         class="pointer-events-none absolute -right-1/4 -bottom-1/2 z-10 mx-auto aspect-square w-full max-w-60 opacity-25 md:right-0 md:bottom-0 md:opacity-100 lg:static lg:mt-9"
       />
     </div>
-    <div class="relative z-10 mt-6 w-full lg:ml-auto lg:w-2/3 lg:max-w-128 xl:max-w-144">
+    <div class="relative z-10 mt-6 w-full lg:ml-auto lg:w-2/3 lg:max-w-lg xl:max-w-xl">
       <NuxtPicture
         v-if="imageDecor"
         :src="imageDecor"

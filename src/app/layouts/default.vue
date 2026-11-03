@@ -2,18 +2,16 @@
 import { TheHeader } from "~/widgets/header";
 import { Preloader } from '~/shared/ui/preloader'
 
-const pageLoaded = ref(false)
+const appReady = ref(false)
 const minimumTimeElapsed = ref(false)
 const { start } = useTimeoutFn(() => {
   minimumTimeElapsed.value = true
-}, 700, { immediate: false })
+}, 500, { immediate: false })
 
-useEventListener('load', () => {
-  pageLoaded.value = true
-}, { once: true })
+const loading = computed(() => !appReady.value || !minimumTimeElapsed.value)
 
 onMounted(() => {
-  pageLoaded.value = document.readyState === 'complete'
+  appReady.value = true
   start()
 })
 
@@ -24,11 +22,13 @@ useHead({
 
 <template>
   <div class="flex flex-col pt-5">
-    <Preloader :visible="!pageLoaded || !minimumTimeElapsed" />
-    <TheHeader />
-    <main class="flex flex-col space-y-8 mt-16">
-      <slot />
-    </main>
-    <footer>Footer</footer>
+    <Preloader :visible="loading" />
+    <div :inert="(appReady && loading) || undefined" :aria-busy="loading">
+      <TheHeader />
+      <main class="flex flex-col space-y-8 mt-16">
+        <slot />
+      </main>
+      <footer>Footer</footer>
+    </div>
   </div>
 </template>
