@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { hero, video } from '../model/HomePage.data'
+import { advantages, hero, video } from '../model/HomePage.data'
+import { AdvantagesBlock } from '~/widgets/advantages'
 import { HeroBlock } from '~/widgets/home/hero'
 import { VideoBlock } from '~/widgets/home/video'
 </script>
@@ -7,4 +8,5 @@ import { VideoBlock } from '~/widgets/home/video'
 <template>
   <HeroBlock v-bind="hero" />
   <VideoBlock v-bind="video" />
+  <AdvantagesBlock v-bind="advantages" />
 </template>
