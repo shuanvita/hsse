@@ -17,7 +17,7 @@ defineProps<HeroBlockProgram>()
         size="custom"
         post-icon="arrow-up"
         icon-class="size-5 shrink-0"
-        class="w-fit shrink-0 rounded-[40px] border-2 border-foreground px-3 py-3 text-base font-normal text-foreground hover:bg-foreground hover:text-primary max-md:w-full"
+        class="w-fit shrink-0 rounded-[40px] border-2 border-foreground px-3 py-3 text-base font-normal hover:bg-foreground hover:text-primary max-[550px]:w-full"
       >
         {{ link.text }}
       </UiAction>

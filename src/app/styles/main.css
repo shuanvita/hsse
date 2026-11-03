@@ -32,5 +32,5 @@ html {
 }
 
 .container {
-  @apply mx-auto max-w-275 px-5 lg:px-0;
+  @apply mx-auto max-w-275 px-5 min-[1140px]:px-0;
 }
