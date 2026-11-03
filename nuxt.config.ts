@@ -6,6 +6,13 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
+  nitro: {
+    prerender: {
+      // These linked pages have not been implemented yet.
+      ignore: [/\/bachelor\/software-systems\/?$/, /\/bachelor\/cybersecurity\/?$/, /\/master\/?$/],
+    },
+  },
+
   app: {
     head: {
       title:
