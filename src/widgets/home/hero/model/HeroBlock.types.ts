@@ -11,6 +11,6 @@ export interface HeroBlockProgram {
   title: string;
   link: {
     to: string;
-    text: string;
+    text?: string;
   }
 }

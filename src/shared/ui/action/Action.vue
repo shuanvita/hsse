@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<ActionProps>(), {
   variant: 'primary',
   size: 'lg',
   type: 'button',
-  iconClass: 'size-6',
+  iconClass: 'size-5 shrink-0',
   disabled: false,
   external: null,
 })

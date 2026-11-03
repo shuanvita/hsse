@@ -4,7 +4,7 @@ import type { HeadingProps } from './Heading.types'
 import { HEADING_CLASSES } from './Heading.constants'
 
 const props = withDefaults(defineProps<HeadingProps>(), {
-  tag: 'h2',
+  as: 'h2',
   uppercase: false,
 })
 
@@ -13,8 +13,8 @@ const sanitizedHtml = computed(() => sanitizeHtml(props.html))
 
 <template>
   <component
-    :is="tag"
-    :class="['font-bold font-dewi-extended', HEADING_CLASSES[variant ?? tag], { uppercase: props.uppercase }]"
+    :is="as"
+    :class="['font-bold font-dewi-extended', HEADING_CLASSES[variant ?? as], { uppercase: props.uppercase }]"
   >
     <span v-if="html" v-html="sanitizedHtml" />
     <slot v-else />

@@ -12,7 +12,6 @@ export const hero: HeroBlockProps = {
       title: typograf('Программа «Разработка программно-информационных систем»'),
       link: {
         to: '/bachelor/software-systems',
-        text: typograf('Подробнее')
       }
     },
     {
@@ -20,7 +19,6 @@ export const hero: HeroBlockProps = {
       title: typograf('Программа «Разработка систем кибербезопасности и реинжиниринг киберфизических систем»'),
       link: {
         to: '/bachelor/cybersecurity',
-        text: typograf('Подробнее')
       }
     },
     {
@@ -28,7 +26,6 @@ export const hero: HeroBlockProps = {
       title: typograf('Программа «Распределённые системы и искусственный интеллект»'),
       link: {
         to: '/master',
-        text: typograf('Подробнее')
       }
     }
   ]

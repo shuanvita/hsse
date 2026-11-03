@@ -53,7 +53,7 @@ onBeforeUnmount(() => (isLocked.value = false))
             v-if="title || closable"
             class="flex shrink-0 items-center justify-between gap-4 border-b border-white/6 px-6 py-4"
           >
-            <UiHeading v-if="title" :id="titleId" tag="h2" variant="h3">{{ title }}</UiHeading>
+            <UiHeading v-if="title" :id="titleId" as="h2" variant="h3">{{ title }}</UiHeading>
             <UiAction
               v-if="closable"
               variant="custom"
