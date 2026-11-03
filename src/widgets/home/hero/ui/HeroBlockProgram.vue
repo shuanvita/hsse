@@ -8,9 +8,9 @@ defineProps<HeroBlockProgram>()
   <li class="flex flex-col">
     <UiBadge class="mb-4">{{ badge }}</UiBadge>
     <div class="flex items-center justify-between gap-6 border-y-2 border-stroke py-2 text-foreground max-[550px]:flex-col max-[550px]:items-stretch">
-      <span class="max-w-[320px] font-dewi-extended text-base font-bold uppercase max-[550px]:max-w-full">
+      <UiHeading tag="h3" uppercase class="max-w-[320px] max-[550px]:max-w-full">
         {{ title }}
-      </span>
+      </UiHeading>
       <UiAction
         :to="link.to"
         variant="custom"
