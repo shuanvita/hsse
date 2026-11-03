@@ -14,7 +14,7 @@ const sanitizedHtml = computed(() => sanitizeHtml(props.html))
 <template>
   <component
     :is="tag"
-    :class="['leading-[1.1]', HEADING_CLASSES[variant ?? tag], { uppercase: props.uppercase }]"
+    :class="['font-bold font-dewi-extended', HEADING_CLASSES[variant ?? tag], { uppercase: props.uppercase }]"
   >
     <span v-if="html" v-html="sanitizedHtml" />
     <slot v-else />

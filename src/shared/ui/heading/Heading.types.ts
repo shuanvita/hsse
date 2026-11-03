@@ -1,7 +1,7 @@
-export type HeadingVariant = 'display' | 'h1' | 'h2' | 'h3' | 'h4' | 'caption' | 'mono' | 'label'
+export type HeadingVariant = 'h1' | 'h2' | 'h3'
 
 export interface HeadingProps {
-  tag?: 'h1' | 'h2' | 'h3' | 'h4'
+  tag?: 'h1' | 'h2' | 'h3'
   variant?: HeadingVariant
   uppercase?: boolean
   html?: string

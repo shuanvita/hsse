@@ -2,7 +2,7 @@
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
-  modules: ['@nuxt/eslint', '@nuxt/fonts', '@nuxt/image', '@nuxt/scripts', '@vueuse/nuxt/module', 'nuxt-svgo', 'nuxt-swiper'],
+  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/scripts', '@vueuse/nuxt/module', 'nuxt-svgo', 'nuxt-swiper'],
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
@@ -12,14 +12,6 @@ export default defineNuxtConfig({
         'Высшая школа программной инженерии',
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     },
-  },
-
-  fonts: {
-    families: [
-      { name: 'Manrope Variable', weights: [200, 300, 400, 500, 600, 700, 800] },
-      { name: 'IBM Plex Mono', weights: [300, 400, 500, 600, 700] },
-      { name: 'RF Dewi Extended', weights: [300, 400, 500, 600, 700] },
-    ],
   },
 
   srcDir: './src',

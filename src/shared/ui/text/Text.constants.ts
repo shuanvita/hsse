@@ -3,8 +3,8 @@
 import type { TextVariant } from './Text.types'
 
 export const TEXT_SIZE_CLASSES: Record<TextVariant, string> = {
-  lg: 'text-[15px] xl:text-[18px]',
-  default: 'text-[16px]',
+  lg: 'text-[18px] leading-6',
+  default: 'text-[16px] leading-6',
   sm: 'text-[14px]',
   caption: 'text-[12px]',
   mono: 'text-[13px] font-mono',

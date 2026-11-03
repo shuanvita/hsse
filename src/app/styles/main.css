@@ -1,8 +1,10 @@
 @import 'tailwindcss';
+@import './fonts.css';
 
 @theme {
-  --font-sans: 'Manrope', sans-serif;
-  --font-dewi: 'RF Dewi Extended', sans-serif;
+  --font-sans: 'Manrope Variable', sans-serif;
+  --font-dewi: 'RF Dewi', sans-serif;
+  --font-dewi-extended: 'RF Dewi Extended', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
 
   --default-font-size: 16px;

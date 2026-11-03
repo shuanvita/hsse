@@ -1,7 +1,8 @@
 <script setup lang="ts">
-
+import { hero } from '../model/HomePage.data'
+import { HeroBlock } from '~/widgets/home/hero'
 </script>
 
 <template>
-  <div>Home Page</div>
+  <HeroBlock v-bind="hero" />
 </template>

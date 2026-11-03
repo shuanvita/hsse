@@ -25,4 +25,6 @@ logs
 
 # AI
 .claude
+.agents
 CLAUDE.md
+AGENTS.md
