@@ -25,7 +25,7 @@ useHead({
     <Preloader :visible="loading" />
     <div :inert="(appReady && loading) || undefined" :aria-busy="loading">
       <TheHeader />
-      <main class="flex flex-col space-y-8 mt-16">
+      <main class="flex flex-col space-y-15 lg:space-y-25 mt-16">
         <slot />
       </main>
       <footer>Footer</footer>

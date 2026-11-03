@@ -1,4 +1,5 @@
 import type { HeroBlockProps } from '~/widgets/home/hero'
+import type { VideoBlockProps } from '~/widgets/home/video'
 import { typograf } from '~/shared/lib/typograf'
 
 export const hero: HeroBlockProps = {
@@ -29,4 +30,11 @@ export const hero: HeroBlockProps = {
       }
     }
   ]
+}
+
+export const video: VideoBlockProps = {
+  src: '/videos/hsse.mp4',
+  poster: '/images/home/video-poster.webp',
+  mobilePoster: '/images/home/video-poster-mobile.webp',
+  label: typograf('Смотреть видео о Высшей школе программной инженерии'),
 }
