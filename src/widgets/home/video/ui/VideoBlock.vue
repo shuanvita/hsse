@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// TODO Компонент вынести в общее пространство. На странцие /paid переиспользуется
 import type { VideoBlockProps } from '../model/VideoBlock.types'
 
 defineProps<VideoBlockProps>()
