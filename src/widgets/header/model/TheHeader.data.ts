@@ -37,28 +37,28 @@ export const TheHeaderData: TheHeaderProps = {
       ],
     },
     {
-      link: '#',
+      link: '/#about',
       text: 'О ВШПИ'
     },
     {
-      link: '#',
+      link: '/#learn',
       text: 'Программа обучения'
     },
     {
-      link: '#',
+      link: '/#team',
       text: 'Команда и менторы'
     },
     {
-      link: '#',
+      link: '/#kakpostupit',
       text: 'Как поступить'
     },
     {
-      link: '#',
+      link: '/#footer',
       text: 'Контакты'
     }
   ],
   cta: {
-    link: '#',
+    link: '/#form',
     text: 'Задать вопрос',
   }
 }

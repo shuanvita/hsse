@@ -1,19 +1,29 @@
 <script setup lang="ts">
 import { TheHeaderData } from '../model/TheHeader.data'
-import TheHeaderNav from "./TheHeaderNav.vue";
+import TheHeaderNav from "./TheHeaderNav.vue"
+import MobileMenu from './MobileMenu.vue'
+import { useElementBounding } from '@vueuse/core'
+
+const menuOpen = ref(false)
+const header = ref<HTMLElement | null>(null)
+const { bottom: headerBottom } = useElementBounding(header)
 </script>
 
 <template>
-  <header class="container flex items-center justify-between gap-8 border-y border-stroke py-3">
-    <div class="flex items-center gap-10">
-      <UiAction v-for="logo in TheHeaderData.logos" :key="logo.link" :to="logo.link" class="w-27" variant="custom" size="custom">
+  <header ref="header" class="container flex items-center justify-between gap-8 border-b pb-5 lg:border-y border-stroke lg:py-3" :class="{ 'sticky top-0 z-50 bg-primary': menuOpen }">
+    <div class="flex items-center gap-6 sm:gap-10">
+      <UiAction v-for="logo in TheHeaderData.logos" :key="logo.link" :to="logo.link" :aria-label="logo.ariaLabel" class="w-23 sm:w-27" variant="custom" size="custom">
         <UiSvg :name="logo.image" :aria-label="logo.ariaLabel" />
       </UiAction>
     </div>
-    <div class="flex items-center gap-6">
+    <div class="hidden items-center gap-6 xl:flex">
       <TheHeaderNav :nav="TheHeaderData.nav"/>
       <UiAction :to="TheHeaderData.cta.link" class="h-7 px-2 text-xs rounded-sm border border-foreground hover:text-primary hover:bg-foreground" variant="custom" size="custom">{{ TheHeaderData.cta.text }}</UiAction>
     </div>
+    <button type="button" class="-m-2 p-2 xl:hidden" :aria-label="menuOpen ? 'Закрыть меню' : 'Открыть меню'" aria-controls="mobile-menu" :aria-expanded="menuOpen" @click="menuOpen = !menuOpen">
+      <UiSvg :name="menuOpen ? 'close' : 'burger'" class="size-7" />
+    </button>
   </header>
+  <MobileMenu v-model="menuOpen" :config="TheHeaderData" :top="headerBottom" />
 </template>
 

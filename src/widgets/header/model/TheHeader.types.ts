@@ -1,3 +1,9 @@
+export interface HeaderProgram {
+  overTitle: string;
+  link: string;
+  text: string;
+}
+
 export interface TheHeaderProps {
   logos: {
     link: string;
@@ -8,11 +14,7 @@ export interface TheHeaderProps {
     link: string;
     text: string;
     isDropdown?: boolean;
-    dropdownMenu?: {
-      overTitle: string;
-      link: string;
-      text: string;
-    }[]
+    dropdownMenu?: HeaderProgram[]
   }[]
   cta: {
     link: string;
