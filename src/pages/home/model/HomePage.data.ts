@@ -8,7 +8,36 @@ import type { PeopleSliderProps } from '~/widgets/people-slider'
 import type { BestProjectProps } from '~/widgets/home/best-project'
 import type { AdmissionPathsProps } from '~/widgets/home/admission-paths'
 import type { AdmissionOverviewProps } from '~/widgets/admission-overview'
+import type { FactsBlockProps } from '~/widgets/facts-block'
 import { typograf } from '~/shared/lib/typograf'
+
+export const factsBlocks: FactsBlockProps[] = [
+  {
+    title: typograf('План набора *'),
+    items: [
+      { value: '4', unit: typograf('года'), description: typograf('очная форма обучения') },
+      { value: '85', description: typograf('бюджетных мест') },
+      { value: '41', description: typograf('контрактных мест') },
+    ],
+    note: typograf('* Количество мест и условия набора определяются в соответствии с правилами приёма МФТИ.\nИнформация будет обновлена после утверждения контрольных цифр набора на 2027 год.'),
+  },
+  {
+    title: typograf('Минимальные баллы'),
+    items: [
+      { value: '70', unit: typograf('баллов'), description: typograf('Русский язык') },
+      { value: '85', unit: typograf('баллов'), description: typograf('Математика') },
+      { value: '85', unit: typograf('баллов'), description: typograf('Информатика') },
+    ],
+  },
+  {
+    title: typograf('Статистика приёма на 2026 год'),
+    items: [
+      { value: '2100', description: typograf('поданных заявлений на бюджет и 590 на платное обучение') },
+      { value: '103', description: typograf('поступивших\n\n79 бюджетных мест\n24 контрактных места') },
+      { value: '31', description: typograf('конкурс, человек на бюджетное место') },
+    ],
+  },
+]
 
 export const admissionOverview: AdmissionOverviewProps = {
   title: typograf('Приём на 2027'),

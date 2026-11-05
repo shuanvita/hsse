@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { admissionOverview, admissionPaths, advantages, bestProjects, educationCareer, hero, partners, peopleSlider, projectPractice, video } from '../model/HomePage.data'
+import { admissionOverview, admissionPaths, advantages, bestProjects, educationCareer, factsBlocks, hero, partners, peopleSlider, projectPractice, video } from '../model/HomePage.data'
 import { AdvantagesBlock } from '~/widgets/advantages'
 import { HeroBlock } from '~/widgets/home/hero'
 import { VideoBlock } from '~/widgets/home/video'
@@ -10,6 +10,7 @@ import { PeopleSlider } from '~/widgets/people-slider'
 import { BestProject } from '~/widgets/home/best-project'
 import { AdmissionPaths } from '~/widgets/home/admission-paths'
 import { AdmissionOverview } from '~/widgets/admission-overview'
+import { FactsBlock } from '~/widgets/facts-block'
 </script>
 
 <template>
@@ -23,4 +24,5 @@ import { AdmissionOverview } from '~/widgets/admission-overview'
   <BestProject v-bind="bestProjects" />
   <AdmissionPaths v-bind="admissionPaths" />
   <AdmissionOverview v-bind="admissionOverview" />
+  <FactsBlock v-for="block in factsBlocks" :key="block.title" v-bind="block" />
 </template>
