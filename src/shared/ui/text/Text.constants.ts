@@ -7,7 +7,7 @@ export const TEXT_SIZE_CLASSES: Record<TextVariant, string> = {
   default: 'text-[16px] leading-6',
   sm: 'text-[14px]',
   caption: 'text-[12px]',
-  mono: 'text-[13px] font-mono',
+  mono: 'font-mono',
   label: 'text-[11px] font-mono',
   custom: '',
 }

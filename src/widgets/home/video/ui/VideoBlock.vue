@@ -2,7 +2,11 @@
 // TODO Компонент вынести в общее пространство. На странцие /paid переиспользуется
 import type { VideoBlockProps } from '../model/VideoBlock.types'
 
-defineProps<VideoBlockProps>()
+const props = defineProps<VideoBlockProps>()
+const baseURL = useRuntimeConfig().app.baseURL
+const publicUrl = (url: string) => url.startsWith('/') && !url.startsWith('//')
+  ? `${baseURL}${url.slice(1)}`
+  : url
 
 const started = ref(false)
 const video = ref<HTMLVideoElement | null>(null)
@@ -30,8 +34,8 @@ async function startVideo() {
     <video
       v-else
       ref="video"
-      :src="src"
-      :poster="poster"
+      :src="publicUrl(props.src)"
+      :poster="publicUrl(props.poster)"
       :aria-label="label"
       class="aspect-480/759 w-full rounded-xl bg-black sm:aspect-video"
       controls

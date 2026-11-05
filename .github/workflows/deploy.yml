@@ -33,6 +33,7 @@ jobs:
           else
             echo "NUXT_APP_BASE_URL=/$repo/" >> "$GITHUB_ENV"
           fi
+          echo "NUXT_IMAGE_PROVIDER=none" >> "$GITHUB_ENV"
       - run: npm run generate
       - uses: actions/upload-pages-artifact@v3
         with:

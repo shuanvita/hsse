@@ -1,6 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from '@tailwindcss/vite'
 
+const baseURL = (globalThis as typeof globalThis & { process: { env: Record<string, string | undefined> } }).process.env.NUXT_APP_BASE_URL || '/'
+
 export default defineNuxtConfig({
   modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/scripts', '@vueuse/nuxt/module', 'nuxt-svgo', 'nuxt-swiper'],
   compatibilityDate: '2025-07-15',
@@ -18,7 +20,7 @@ export default defineNuxtConfig({
     head: {
       title:
         'Высшая школа программной инженерии',
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: `${baseURL}favicon.ico` }],
     },
   },
 
@@ -49,5 +51,8 @@ export default defineNuxtConfig({
   image: {
     format: ['webp'],
     domains: ['hsse.mipt.ru'],
+    alias: {
+      '/images/': `${baseURL}images/`,
+    },
   },
 })

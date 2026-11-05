@@ -5,7 +5,64 @@ import type { ProjectPracticeProps } from '~/widgets/home/project-practice'
 import type { PartnersProps } from '~/widgets/partners'
 import type { EducationCareerProps } from '~/widgets/education-career'
 import type { PeopleSliderProps } from '~/widgets/people-slider'
+import type { BestProjectProps } from '~/widgets/home/best-project'
 import { typograf } from '~/shared/lib/typograf'
+
+export const bestProjects: BestProjectProps = {
+  title: typograf('Топ лучших студенческих проектов'),
+  projects: [
+    {
+      title: typograf('SberFit'),
+      description: typograf('SberFit — партнёрский проект СБЕР и коллектива разработчиков 2 и 3 курса ВШПИ. SberFit — персонализированное мобильное приложение для контроля питания и здоровья. Комплексное решение объединяет мобильное приложение, серверную часть на Go, ML-компоненты и умный чат-бот на базе GigaChat, интегрируется с Apple Health, распознаёт блюда по фото и даёт советы через чат-бот с учётом личных данных пользователя.'),
+      note: typograf('Топ проектов осеннего семестра 2024/25 уч. года'),
+      image: '/images/best-project/orbit-2.png',
+      video: 'https://kinescope.io/x18u2MWXGV1qXMAww9cB3R',
+    },
+    {
+      title: typograf('Teach assistant'),
+      description: typograf('Teach assistant — это партнёрский проект студентов 1 курса ВШПИ с компанией МТС. Разработка объединяет Telegram-бот и web-приложение для решения проблем взаимодействия учителей, учеников и родителей в ходе учебного процесса. Решение автоматизирует рутинные операции: управление расписанием, контроль выполнения домашних заданий и обмен информацией, позволяет получать уведомления и обмениваться учебными материалами.'),
+      note: typograf('Топ проектов осеннего семестра 2024/25 уч. года'),
+      image: '/images/best-project/orbit-4.png',
+      video: 'https://kinescope.io/6iSrGxo4gNKqv4GKPpA1QS',
+    },
+    {
+      title: typograf('userver от Яндекс'),
+      descriptionLink: { label: 'Userver', to: 'https://userver.tech/' },
+      description: typograf(' — фреймворк от Яндекс с открытыми исходными кодами для разработки высоконагруженных приложений на C++. В проекте реализованы задачи оптимизации сетевого взаимодействия Userver. Разработанный код принят в основную сборку userver и используется сервисами Яндекса в продуктивной работе.'),
+      note: typograf('Топ проектов осеннего семестра 2023/24 уч. года'),
+      image: '/images/best-project/orbit-2.png',
+      video: 'https://kinescope.io/vDDPvhbfHNaLSpDYNT8Ghj',
+    },
+    {
+      title: typograf('Агрегатор такси'),
+      description: typograf('Проект привязан к курсу «Программирование на Go»: нужно разработать клиентскую часть приложения заказа такси. В проекте использованы язык Go, базы данных MongoDB и PostgreSQL, система обмена сообщениями Kafka. Сервисы развёрнуты в Docker, мониторинг организовали с помощью Prometheus, Jaeger, OpenTelemetry и Grafana.'),
+      note: typograf('Топ проектов осеннего семестра 2023/24 уч. года'),
+      image: '/images/best-project/orbit-1.png',
+      video: 'https://kinescope.io/aVfmVxPaYTRbC6a2wEra3W',
+    },
+    {
+      title: typograf('ABC Reader'),
+      description: typograf('Студенческий проект по созданию сервиса для изучения иностранного языка, который генерирует карточки и упражнения на основе любого текста.'),
+      note: typograf('Топ проектов осеннего семестра 2023/24 уч. года'),
+      image: '/images/best-project/orbit-5.png',
+      video: 'https://kinescope.io/9JjQ1SZFrapv2yZVDFR7vx',
+    },
+    {
+      title: typograf('R.Olympiads'),
+      description: typograf('R.Olympiads — инициативный проект студента 2 курса. Идея проекта — создать систему агрегации информации и оповещения пользователей об олимпиадах школьников, а также сформировать каталог бесплатных материалов для подготовки к каждой из олимпиад.'),
+      note: typograf('Топ проектов весеннего семестра 2022/23 уч. года'),
+      image: '/images/best-project/orbit-4.png',
+      video: 'https://kinescope.io/2TCp7Kp2fM2ihoRfM4Sizz',
+    },
+    {
+      title: typograf('ADA'),
+      description: typograf('ADA — приложение-анализатор тональности постов в соцсетях. Приложение выявляет позитивные новостные сообщения в СМИ и соцсетях с использованием методов тонального анализа.'),
+      note: typograf('Топ проектов весеннего семестра 2022/23 уч. года'),
+      image: '/images/best-project/orbit-3.png',
+      video: 'https://kinescope.io/sz6tSYpHWkR786iLR9d6oK',
+    },
+  ],
+}
 
 export const hero: HeroBlockProps = {
   title: typograf('Высшая школа программной инженерии'),
