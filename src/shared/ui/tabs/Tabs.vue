@@ -38,6 +38,7 @@ if (import.meta.dev) {
         item.value === model ? classes.active : classes.inactive,
       ]"
       :disabled="item.disabled"
+      :aria-pressed="item.value === model"
       @click="select(item.value)"
     >
       {{ item.label }}

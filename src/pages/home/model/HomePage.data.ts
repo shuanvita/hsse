@@ -3,7 +3,8 @@ import type { HeroBlockProps } from '~/widgets/home/hero'
 import type { VideoBlockProps } from '~/widgets/home/video'
 import type { ProjectPracticeProps } from '~/widgets/home/project-practice'
 import type { PartnersProps } from '~/widgets/partners'
-import type { EducationCareerProps } from '~/widgets/home/education-career'
+import type { EducationCareerProps } from '~/widgets/education-career'
+import type { PeopleSliderProps } from '~/widgets/people-slider'
 import { typograf } from '~/shared/lib/typograf'
 
 export const hero: HeroBlockProps = {
@@ -118,4 +119,8 @@ export const educationCareer: EducationCareerProps = {
       introductionLink: { label: typograf('по рейтингу SuperJob'), to: 'https://students.superjob.ru/reiting-vuzov/it/' },
     },
   ],
+}
+
+export const peopleSlider: PeopleSliderProps = {
+  title: typograf('Команда и менторы ВШПИ'),
 }

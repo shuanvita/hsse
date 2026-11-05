@@ -13,7 +13,7 @@ const swiperOptions = { spaceBetween: 20, slidesPerView: 1.05, breakpoints: { 76
     <div class="container">
       <div class="mb-10 flex flex-wrap items-center gap-10">
         <UiHeading>{{ title }}</UiHeading>
-        <NuxtPicture :src="logo" :alt="logoAlt" :img-attrs="{ class: 'h-11 max-w-36 object-contain' }" />
+        <NuxtPicture v-if="logo" :src="logo" :alt="logoAlt || ''" :img-attrs="{ class: 'h-11 max-w-36 object-contain' }" />
       </div>
       <div class="education-career-swiper">
         <UiSwiper
@@ -25,6 +25,7 @@ const swiperOptions = { spaceBetween: 20, slidesPerView: 1.05, breakpoints: { 76
           </swiper-slide>
         </UiSwiper>
       </div>
+      <UiAction v-if="action" :to="action.to" post-icon="arrow-up" class="mt-12">{{ action.label }}</UiAction>
     </div>
   </section>
 </template>

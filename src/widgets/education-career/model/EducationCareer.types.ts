@@ -4,7 +4,7 @@ export interface EducationCareerLink {
 }
 
 export interface EducationCareerTrack {
-  title: string
+  title?: string
   items: string[]
 }
 
@@ -21,7 +21,8 @@ export interface EducationCareerStage {
 
 export interface EducationCareerProps {
   title: string
-  logo: string
-  logoAlt: string
+  logo?: string
+  logoAlt?: string
   stages: EducationCareerStage[]
+  action?: EducationCareerLink
 }

@@ -20,6 +20,11 @@ const activePage = ref(0)
 const pageCount = ref(0)
 const slidesPerGroup = ref(1)
 const slidesPerGroupSkip = ref(0)
+const visiblePages = computed(() => {
+  const count = Math.min(pageCount.value, 5)
+  const start = Math.max(0, Math.min(activePage.value - Math.floor(count / 2), pageCount.value - count))
+  return Array.from({ length: count }, (_, index) => start + index)
+})
 
 function goTo(index: number) {
   if (swiper.instance.value?.params.loop) swiper.instance.value.slideToLoop(index)
@@ -74,15 +79,15 @@ function updateState(event: Event) {
         </UiAction>
         <div class="flex items-center gap-4" aria-label="Выбор слайда">
           <UiAction
-            v-for="index in pageCount"
-            :key="index"
+            v-for="page in pageCount"
+            :key="page"
             variant="custom"
             size="custom"
-            :aria-label="slideLabels[pageSlideIndex(index - 1)] || `Слайд ${pageSlideIndex(index - 1) + 1}`"
-            :aria-current="activePage === index - 1 ? 'true' : undefined"
-            :class="activePage === index - 1 ? 'scale-125 bg-foreground' : 'bg-foreground/50'"
+            :aria-label="slideLabels[pageSlideIndex(page - 1)] || `Слайд ${pageSlideIndex(page - 1) + 1}`"
+            :aria-current="activePage === page - 1 ? 'true' : undefined"
+            :class="[activePage === page - 1 ? 'scale-125 bg-foreground' : 'bg-foreground/50', { 'hidden! md:inline-flex!': !visiblePages.includes(page - 1) }]"
             class="size-3 rounded-full"
-            @click="goToPage(index - 1)"
+            @click="goToPage(page - 1)"
           />
         </div>
         <UiAction variant="custom" size="custom" aria-label="Следующий слайд" :disabled="isEnd" class="disabled:border-0 disabled:bg-transparent disabled:text-foreground disabled:opacity-25" @click="swiper.next()">

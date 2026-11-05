@@ -21,10 +21,10 @@ defineProps<{ stage: EducationCareerStage, active: boolean }>()
           </li>
         </ul>
         <UiText v-if="stage.description">{{ stage.description }}</UiText>
-        <ol v-if="stage.tracks?.length" class="list-decimal space-y-3 pl-5">
-          <li v-for="track in stage.tracks" :key="track.title">
-            {{ track.title }}
-            <ul class="mt-3 space-y-3">
+        <ol v-if="stage.tracks?.length" class="space-y-3">
+          <li v-for="(track, index) in stage.tracks" :key="track.title ?? index">
+            <template v-if="track.title">{{ index + 1 }}. {{ track.title }}</template>
+            <ul class="space-y-3" :class="{ 'mt-3 pl-5': track.title }">
               <UiBadge v-for="item in track.items" :key="item" as="li" variant="outline" class="w-full">{{ item }}</UiBadge>
             </ul>
           </li>
