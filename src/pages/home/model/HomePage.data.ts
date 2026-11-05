@@ -7,7 +7,21 @@ import type { EducationCareerProps } from '~/widgets/education-career'
 import type { PeopleSliderProps } from '~/widgets/people-slider'
 import type { BestProjectProps } from '~/widgets/home/best-project'
 import type { AdmissionPathsProps } from '~/widgets/home/admission-paths'
+import type { AdmissionOverviewProps } from '~/widgets/admission-overview'
 import { typograf } from '~/shared/lib/typograf'
+
+export const admissionOverview: AdmissionOverviewProps = {
+  title: typograf('Приём на 2027'),
+  items: [
+    { label: typograf('4 года, очная форма обучения') },
+    { label: typograf('85 бюджетных мест') },
+    { label: typograf('41 платное место') },
+    { label: typograf('общежитие') },
+    { label: typograf('отсрочка от армии') },
+    { label: typograf('государственная аккредитация') },
+    { label: typograf('обучение на кампусе МФТИ и в офисах компаний-партнёров'), wide: true },
+  ],
+}
 
 export const admissionPaths: AdmissionPathsProps = {
   title: typograf('Как поступить на программы базового высшего образования'),
