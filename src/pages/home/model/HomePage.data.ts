@@ -6,7 +6,37 @@ import type { PartnersProps } from '~/widgets/partners'
 import type { EducationCareerProps } from '~/widgets/education-career'
 import type { PeopleSliderProps } from '~/widgets/people-slider'
 import type { BestProjectProps } from '~/widgets/home/best-project'
+import type { AdmissionPathsProps } from '~/widgets/home/admission-paths'
 import { typograf } from '~/shared/lib/typograf'
+
+export const admissionPaths: AdmissionPathsProps = {
+  title: typograf('Как поступить на программы базового высшего образования'),
+  items: [
+    {
+      title: typograf('По результатам ЕГЭ'),
+      preview: typograf('В качестве вступительных испытаний засчитываются результаты ЕГЭ. Минимальное количество баллов для поступления по русскому языку — 70 баллов, математика и информатика — 85 баллов. Баллы являются минимальными как для подачи заявления на бюджетные места, так и на платные места.'),
+      details: typograf('Рейтинг абитуриента определяется суммой баллов ЕГЭ по трём предметам, а также дополнительными баллами за индивидуальные достижения.'),
+    },
+    {
+      title: typograf('По результатам олимпиад по математике и информатике'),
+      preview: typograf('Олимпиады позволят поступить без вступительных испытаний. Диплом победителя или призёра ВсОШ гарантирует поступление без подтверждения диплома результатами ЕГЭ.'),
+      details: typograf('Победа в олимпиадах из списка РсОШ позволяет поступить без вступительных испытаний или получить 100 баллов по дисциплине при подтверждении олимпиады баллами ЕГЭ по профильному предмету.'),
+      link: { label: typograf('Перечень олимпиад, предоставляющих особое право поступления БВИ в ВШПИ'), to: 'https://pk.mipt.ru/bachelor/2027_olympiads' },
+    },
+    {
+      title: typograf('На платное обучение'),
+      preview: typograf('Абитуриенты, набравшие минимальные баллы ЕГЭ и не прошедшие по конкурсу на бюджетные места, могут участвовать в конкурсе на платное обучение. Стоимость обучения фиксируется на весь период обучения.'),
+      details: typograf('Студент, закончивший семестр на «хорошо» и «отлично», может подать заявление на перевод на бюджетную форму обучения. Стоимость обучения на программу 09.03.04 «Программная инженерия» составляет 1 441 000 рублей, НДС не облагается. Оплата может производиться отдельно за каждый семестр. Оплатить обучение можно несколькими способами:'),
+      additional: [
+        typograf('Из собственных средств'),
+        typograf('Из средств материнского капитала'),
+        typograf('С помощью образовательного кредита'),
+      ],
+      conclusion: typograf('Кредит оформляется с 14 лет на льготных условиях без справки о доходах на любой период обучения. Мы готовы проконсультировать вас по вопросам поступления. Пожалуйста, заполните форму на сайте, и мы ответим на ваши вопросы.'),
+    },
+  ],
+  action: { label: typograf('О платном обучении'), to: 'https://hsse.mipt.ru/paid' },
+}
 
 export const bestProjects: BestProjectProps = {
   title: typograf('Топ лучших студенческих проектов'),
@@ -15,14 +45,14 @@ export const bestProjects: BestProjectProps = {
       title: typograf('SberFit'),
       description: typograf('SberFit — партнёрский проект СБЕР и коллектива разработчиков 2 и 3 курса ВШПИ. SberFit — персонализированное мобильное приложение для контроля питания и здоровья. Комплексное решение объединяет мобильное приложение, серверную часть на Go, ML-компоненты и умный чат-бот на базе GigaChat, интегрируется с Apple Health, распознаёт блюда по фото и даёт советы через чат-бот с учётом личных данных пользователя.'),
       note: typograf('Топ проектов осеннего семестра 2024/25 уч. года'),
-      image: '/images/best-project/orbit-2.png',
+      image: '/images/home/orbit-2.png',
       video: 'https://kinescope.io/x18u2MWXGV1qXMAww9cB3R',
     },
     {
       title: typograf('Teach assistant'),
       description: typograf('Teach assistant — это партнёрский проект студентов 1 курса ВШПИ с компанией МТС. Разработка объединяет Telegram-бот и web-приложение для решения проблем взаимодействия учителей, учеников и родителей в ходе учебного процесса. Решение автоматизирует рутинные операции: управление расписанием, контроль выполнения домашних заданий и обмен информацией, позволяет получать уведомления и обмениваться учебными материалами.'),
       note: typograf('Топ проектов осеннего семестра 2024/25 уч. года'),
-      image: '/images/best-project/orbit-4.png',
+      image: '/images/home/orbit-4.png',
       video: 'https://kinescope.io/6iSrGxo4gNKqv4GKPpA1QS',
     },
     {
@@ -30,35 +60,35 @@ export const bestProjects: BestProjectProps = {
       descriptionLink: { label: 'Userver', to: 'https://userver.tech/' },
       description: typograf(' — фреймворк от Яндекс с открытыми исходными кодами для разработки высоконагруженных приложений на C++. В проекте реализованы задачи оптимизации сетевого взаимодействия Userver. Разработанный код принят в основную сборку userver и используется сервисами Яндекса в продуктивной работе.'),
       note: typograf('Топ проектов осеннего семестра 2023/24 уч. года'),
-      image: '/images/best-project/orbit-2.png',
+      image: '/images/home/orbit-2.png',
       video: 'https://kinescope.io/vDDPvhbfHNaLSpDYNT8Ghj',
     },
     {
       title: typograf('Агрегатор такси'),
       description: typograf('Проект привязан к курсу «Программирование на Go»: нужно разработать клиентскую часть приложения заказа такси. В проекте использованы язык Go, базы данных MongoDB и PostgreSQL, система обмена сообщениями Kafka. Сервисы развёрнуты в Docker, мониторинг организовали с помощью Prometheus, Jaeger, OpenTelemetry и Grafana.'),
       note: typograf('Топ проектов осеннего семестра 2023/24 уч. года'),
-      image: '/images/best-project/orbit-1.png',
+      image: '/images/home/orbit-1.png',
       video: 'https://kinescope.io/aVfmVxPaYTRbC6a2wEra3W',
     },
     {
       title: typograf('ABC Reader'),
       description: typograf('Студенческий проект по созданию сервиса для изучения иностранного языка, который генерирует карточки и упражнения на основе любого текста.'),
       note: typograf('Топ проектов осеннего семестра 2023/24 уч. года'),
-      image: '/images/best-project/orbit-5.png',
+      image: '/images/home/orbit-5.png',
       video: 'https://kinescope.io/9JjQ1SZFrapv2yZVDFR7vx',
     },
     {
       title: typograf('R.Olympiads'),
       description: typograf('R.Olympiads — инициативный проект студента 2 курса. Идея проекта — создать систему агрегации информации и оповещения пользователей об олимпиадах школьников, а также сформировать каталог бесплатных материалов для подготовки к каждой из олимпиад.'),
       note: typograf('Топ проектов весеннего семестра 2022/23 уч. года'),
-      image: '/images/best-project/orbit-4.png',
+      image: '/images/home/orbit-4.png',
       video: 'https://kinescope.io/2TCp7Kp2fM2ihoRfM4Sizz',
     },
     {
       title: typograf('ADA'),
       description: typograf('ADA — приложение-анализатор тональности постов в соцсетях. Приложение выявляет позитивные новостные сообщения в СМИ и соцсетях с использованием методов тонального анализа.'),
       note: typograf('Топ проектов весеннего семестра 2022/23 уч. года'),
-      image: '/images/best-project/orbit-3.png',
+      image: '/images/home/orbit-3.png',
       video: 'https://kinescope.io/sz6tSYpHWkR786iLR9d6oK',
     },
   ],
