@@ -1,7 +1,21 @@
 import type { AdvantagesBlockProps } from '~/widgets/advantages'
 import type { HeroBlockProps } from '~/widgets/home/hero'
 import type { VideoBlockProps } from '~/widgets/home/video'
+import type { ProjectPracticeProps } from '~/widgets/home/project-practice'
 import { typograf } from '~/shared/lib/typograf'
+
+export const projectPractice: ProjectPracticeProps = {
+  steps: [
+    { label: typograf('1 семестр'), height: 12.5 },
+    { label: typograf('2 семестр'), height: 43.75 },
+    { label: typograf('3 семестр'), height: 75 },
+    { label: typograf('4 семестр'), height: 100, content: typograf('Проектная работа') },
+  ],
+  descriptions: [
+    typograf('Проектная практика в ВШПИ начинается с первого семестра и количество часов постоянно увеличивается, что позволяет студентам работать над реальными проектами от бизнеса.'),
+    typograf('Такой подход обеспечивает не только высокую степень готовности к профессиональной деятельности, но и конкурентное преимущество на рынке труда.'),
+  ],
+}
 
 export const hero: HeroBlockProps = {
   title: typograf('Высшая школа программной инженерии'),
