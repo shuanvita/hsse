@@ -16,11 +16,6 @@ defineProps<AdvantagesBlockProps>()
         <swiper-slide v-for="item in items" :key="item.title" class="h-auto">
           <AdvantageCard v-bind="item" />
         </swiper-slide>
-        <template #fallback>
-          <div class="space-y-5">
-            <AdvantageCard v-for="item in items" :key="item.title" v-bind="item" />
-          </div>
-        </template>
       </UiSwiper>
     </div>
   </section>

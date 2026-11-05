@@ -6,4 +6,5 @@ export const BADGE_VARIANT_CLASSES: Record<BadgeVariant, string> = {
   detail:
     'rounded border-2 border-foreground-muted bg-primary-lighter px-3 py-4 text-[15px] text-foreground',
   date: 'rounded-md border border-foreground px-3 py-2 font-mono tracking-[0.15em]',
+  outline: 'rounded-lg border-2 border-foreground bg-primary-lighter px-3 py-2 text-sm',
 }

@@ -90,8 +90,5 @@ function updateState(event: Event) {
         </UiAction>
       </div>
     </slot>
-    <template #fallback>
-      <slot name="fallback" />
-    </template>
   </ClientOnly>
 </template>
