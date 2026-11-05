@@ -2,7 +2,20 @@ import type { AdvantagesBlockProps } from '~/widgets/advantages'
 import type { HeroBlockProps } from '~/widgets/home/hero'
 import type { VideoBlockProps } from '~/widgets/home/video'
 import type { ProjectPracticeProps } from '~/widgets/home/project-practice'
+import type { PartnersProps } from '~/widgets/partners'
 import { typograf } from '~/shared/lib/typograf'
+
+export const partners: PartnersProps = {
+  title: typograf('Партнёры'),
+  description: typograf('В разработке учебных программ и обучении студентов ВШПИ принимают участие ведущие специалисты ИТ-компаний.'),
+  partners: [
+    { name: 'Яндекс', logo: 'yandex', width: 121 },
+    { name: 'Сбер', logo: 'sber', width: 118 },
+    { name: '1С', logo: '1c', width: 80 },
+    { name: 'Positive Technologies', logo: 'positive-technologies', width: 290, wide: true, href: 'https://ptsecurity.com' },
+    { name: 'MWS', logo: 'mws', width: 53 },
+  ],
+}
 
 export const projectPractice: ProjectPracticeProps = {
   steps: [
