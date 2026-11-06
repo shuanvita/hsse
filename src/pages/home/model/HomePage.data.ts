@@ -1,4 +1,5 @@
 import type { ContactFormProps } from '~/widgets/contact-form'
+import type { PromoBlockProps } from '~/widgets/promo-block'
 import type { AdvantagesBlockProps } from '~/widgets/advantages'
 import type { HeroBlockProps } from '~/widgets/home/hero'
 import type { VideoBlockProps } from '~/widgets/home/video'
@@ -436,4 +437,20 @@ export const contactForm: ContactFormProps = {
   title: typograf('Мы ответим на все вопросы!'),
   image: '/images/callcenter.webp',
   privacyUrl: '/files/Политика-обработки-персональных-данных-МФТИ.pdf',
+}
+
+export const telegramPromo: PromoBlockProps = {
+  title: typograf('Подписывайся на ТГ-канал Абитуриенты ВШПИ МФТИ и сможешь:'),
+  uppercase: true,
+  image: '/images/promo/telegram.svg',
+  imageAlt: '',
+  description: [
+    'первым узнать, как поступить в одну из самых современных физтех-школ МФТИ;',
+    'напрямую пообщаться с представителями ВШПИ и студенческого сообщества;',
+    'узнать больше о жизни кампуса и особенностях учебы на Физтехе',
+  ].map(typograf),
+  actions: [
+    { label: typograf('Перейти в канал Telegram'), to: 'https://t.me/hsse_mipt' },
+    { label: typograf('Перейти в чат Telegram'), to: 'https://t.me/hsse_entering' },
+  ],
 }
