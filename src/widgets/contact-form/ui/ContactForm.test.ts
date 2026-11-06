@@ -4,6 +4,32 @@ import ContactForm from './ContactForm.vue'
 import PhoneInput from '~/shared/ui/phone-input/PhoneInput.vue'
 
 describe('ContactForm validation', () => {
+  it('shows success only after it is confirmed by the parent', async () => {
+    const wrapper = await mountSuspended(ContactForm, {
+      props: { title: 'Вопросы', image: '/image.webp', privacyUrl: '/policy.pdf' },
+    })
+
+    expect(wrapper.text()).not.toContain('Заявка успешно отправлена!')
+    expect(wrapper.find('form').exists()).toBe(true)
+    await wrapper.setProps({ submissionSucceeded: true, registrationClosed: true })
+    expect(wrapper.text()).toContain('Заявка успешно отправлена!')
+    expect(wrapper.find('form').exists()).toBe(false)
+    expect(wrapper.text()).not.toContain('Регистрация закрыта')
+  })
+
+  it('replaces the form with the closed registration message when configured', async () => {
+    const wrapper = await mountSuspended(ContactForm, {
+      props: { title: 'Вопросы', image: '/image.webp', privacyUrl: '/policy.pdf', registrationClosed: true },
+    })
+
+    expect(wrapper.text()).toContain('Вопросы')
+    expect(wrapper.text()).toContain('Регистрация закрыта')
+    expect(wrapper.get('a').attributes('href')).toBe('https://t.me/hsse_mipt')
+    expect(wrapper.find('form').exists()).toBe(false)
+    await wrapper.setProps({ registrationClosed: false })
+    expect(wrapper.find('form').exists()).toBe(true)
+  })
+
   it('shows field errors on blur or submit and clears them when corrected', async () => {
     const wrapper = await mountSuspended(ContactForm, {
       props: { title: 'Вопросы', image: '/image.webp', privacyUrl: '/policy.pdf' },

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { ContactFormProps } from '../model/ContactForm.types'
+import { closedRegistration, submissionSuccess } from '../model/ContactForm.data'
 
-const props = defineProps<ContactFormProps>()
+const props = withDefaults(defineProps<ContactFormProps>(), { registrationClosed: false, submissionSucceeded: false })
 const config = useRuntimeConfig()
 const privacyHref = computed(() => `${config.app.baseURL.replace(/\/$/, '')}${props.privacyUrl}`)
 const name = ref('')
@@ -35,7 +36,7 @@ function submit() {
         <UiHeading as="h2" variant="h3" uppercase class="max-w-65 font-dewi font-semibold leading-6 tracking-[2px]">{{ title }}</UiHeading>
         <NuxtPicture :src="image" alt="" :width="828" :height="776" loading="lazy" class="mt-auto hidden max-w-120 pt-8 md:block" :img-attrs="{ class: 'w-full' }" />
       </div>
-      <form class="flex flex-1 flex-col gap-4 pb-12" novalidate @submit.prevent="submit">
+      <form v-if="!registrationClosed && !submissionSucceeded" class="flex flex-1 flex-col gap-4 pb-12" novalidate @submit.prevent="submit">
         <UiInput v-model="name" label="Имя" placeholder="Имя" name="name" autocomplete="name" :error="touched.name ? errors.name : ''" required @blur="touched.name = true" />
         <UiPhoneInput v-model="phone" name="tel" :error="touched.phone && !!errors.phone" :error-message="errors.phone" required @blur="touched.phone = true" @validity="phoneValidity = $event" />
         <UiInput v-model="email" label="Почта" placeholder="Email" type="email" name="email" autocomplete="email" :error="touched.email ? errors.email : ''" required @blur="touched.email = true" />
@@ -46,6 +47,14 @@ function submit() {
         <UiAction type="submit" variant="invert" post-icon="arrow-up" class="mt-5">Задать вопрос</UiAction>
         <UiText v-if="message" role="status">{{ message }}</UiText>
       </form>
+      <div v-else-if="submissionSucceeded" class="flex flex-1 flex-col items-start justify-center gap-4 pb-12" role="status">
+        <UiHeading as="h3" variant="h3" class="font-dewi-extended text-2xl! font-bold">{{ submissionSuccess }}</UiHeading>
+      </div>
+      <div v-else class="flex flex-1 flex-col items-start justify-center gap-4 pb-12">
+        <UiHeading as="h3" variant="h3" class="font-dewi-extended text-2xl! font-bold">{{ closedRegistration.title }}</UiHeading>
+        <UiText class="max-w-sm text-primary/70">{{ closedRegistration.description }}</UiText>
+        <UiAction :to="closedRegistration.action.to" variant="invert" post-icon="arrow-up">{{ closedRegistration.action.label }}</UiAction>
+      </div>
     </div>
   </section>
 </template>
