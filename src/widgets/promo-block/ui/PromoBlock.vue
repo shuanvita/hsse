@@ -19,7 +19,7 @@ const imageSrc = computed(() => {
 <template>
   <section class="container">
     <div class="flex flex-col gap-6 rounded-lg border-2 border-dashed border-foreground-muted px-5 py-8 md:flex-row md:items-center md:gap-10 md:px-16 md:py-12">
-      <NuxtPicture :src="imageSrc" :alt="imageAlt" :width="167" :height="170" loading="lazy" class="w-32 shrink-0 md:w-42" :img-attrs="{ class: 'h-auto w-full object-contain' }" />
+      <NuxtPicture :src="imageSrc" :alt="imageAlt" :width="167" :height="170" loading="lazy" class="w-32 shrink-0 self-center md:w-42 md:self-auto" :img-attrs="{ class: 'h-auto w-full object-contain' }" />
       <div class="min-w-0 flex-1">
         <UiHeading :as="headingAs" :variant="headingVariant" :uppercase="uppercase" :class="headingVariant === 'h3' ? 'font-semibold leading-7 tracking-[2px]' : ''">{{ title }}</UiHeading>
         <UiText v-if="text" class="mt-6">{{ text }}</UiText>

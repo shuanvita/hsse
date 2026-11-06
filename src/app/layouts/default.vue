@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { TheHeader } from "~/widgets/header";
+import { TheFooter } from '~/widgets/footer'
+import { ScrollToTop } from '~/features/scroll-to-top'
 import { Preloader } from '~/shared/ui/preloader'
 
 const appReady = ref(false)
@@ -28,7 +30,8 @@ useHead({
       <main class="flex flex-col space-y-15 lg:space-y-35 mt-16">
         <slot />
       </main>
-      <footer>Footer</footer>
+      <TheFooter />
+      <ScrollToTop />
     </div>
   </div>
 </template>

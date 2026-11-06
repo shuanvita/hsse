@@ -19,14 +19,14 @@ import { FaqBlock } from '~/widgets/home/faq-block'
 
 <template>
   <HeroBlock v-bind="hero" />
-  <VideoBlock v-bind="video" />
-  <AdvantagesBlock v-bind="advantages" />
+  <VideoBlock id="about" v-bind="video" />
+  <AdvantagesBlock id="learn" v-bind="advantages" />
   <ProjectPractice v-bind="projectPractice" />
   <Partners v-bind="partners" />
   <EducationCareer v-bind="educationCareer" />
-  <PeopleSlider v-bind="peopleSlider" />
+  <PeopleSlider id="team" v-bind="peopleSlider" />
   <BestProject v-bind="bestProjects" />
-  <AdmissionPaths v-bind="admissionPaths" />
+  <AdmissionPaths id="kakpostupit" v-bind="admissionPaths" />
   <AdmissionOverview v-bind="admissionOverview" />
   <FactsBlock v-for="block in factsBlocks" :key="block.title" v-bind="block" />
   <EventsHsse v-bind="eventsHsse" />
