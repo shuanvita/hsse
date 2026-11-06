@@ -18,6 +18,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      htmlAttrs: { lang: 'ru' },
       title:
         'Высшая школа программной инженерии',
       link: [{ rel: 'icon', type: 'image/x-icon', href: `${baseURL}favicon.ico` }],

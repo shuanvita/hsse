@@ -5,6 +5,7 @@ import { ScrollToTop } from '~/features/scroll-to-top'
 import { Preloader } from '~/shared/ui/preloader'
 
 const appReady = ref(false)
+const menuOpen = ref(false)
 const minimumTimeElapsed = ref(false)
 const { start } = useTimeoutFn(() => {
   minimumTimeElapsed.value = true
@@ -25,8 +26,8 @@ useHead({
 <template>
   <div class="flex flex-col pt-5">
     <Preloader :visible="loading" />
-    <div :inert="(appReady && loading) || undefined" :aria-busy="loading">
-      <TheHeader />
+    <div :inert="(appReady && loading) || menuOpen || undefined" :aria-busy="loading">
+      <TheHeader v-model="menuOpen" />
       <main class="flex flex-col space-y-15 lg:space-y-35 mt-16">
         <slot />
       </main>

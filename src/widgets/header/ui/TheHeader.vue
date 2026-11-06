@@ -4,7 +4,7 @@ import TheHeaderNav from "./TheHeaderNav.vue"
 import MobileMenu from './MobileMenu.vue'
 import { useElementBounding } from '@vueuse/core'
 
-const menuOpen = ref(false)
+const menuOpen = defineModel<boolean>({ default: false })
 const header = ref<HTMLElement | null>(null)
 const { bottom: headerBottom } = useElementBounding(header)
 </script>

@@ -18,14 +18,34 @@ const close = () => emit('update:modelValue', false)
 watch(() => props.modelValue, open => { isLocked.value = open })
 watch(() => props.modelValue, async (open) => {
   if (open) {
-    previousFocus = document.activeElement as HTMLElement | null
+    previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null
     await nextTick()
-    panel.value?.focus()
+    if (props.modelValue) panel.value?.focus()
   } else {
+    await nextTick()
     previousFocus?.focus()
     previousFocus = null
   }
 })
+
+function trapFocus(event: KeyboardEvent) {
+  if (event.key !== 'Tab' || !panel.value) return
+  const focusable = Array.from(panel.value.querySelectorAll<HTMLElement>(
+    'a[href], button:not(:disabled), input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [tabindex]:not([tabindex="-1"])',
+  )).filter(element => element.getClientRects().length > 0 && !element.closest('[inert]'))
+  const first = focusable[0]
+  const last = focusable[focusable.length - 1]
+  if (!first || !last) {
+    event.preventDefault()
+    panel.value.focus()
+  } else if (event.shiftKey && (document.activeElement === first || document.activeElement === panel.value)) {
+    event.preventDefault()
+    last.focus()
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault()
+    first.focus()
+  }
+}
 
 watch(isDesktop, desktop => { if (desktop && props.modelValue) close() })
 watch(() => route.fullPath, () => { if (props.modelValue) close() })
@@ -44,8 +64,12 @@ onKeyStroke('Escape', () => { if (props.modelValue) close() })
         ref="panel"
         class="mobile-menu-panel bg-primary absolute inset-y-0 right-0 z-50 flex w-full flex-col overflow-y-auto px-5 pb-8 outline-none sm:max-w-sm sm:border-l sm:border-stroke"
         tabindex="-1"
+        role="dialog"
+        aria-modal="true"
         aria-label="Меню навигации"
+        @keydown="trapFocus"
       >
+        <UiAction variant="custom" size="custom" icon="close" aria-label="Закрыть меню" class="mt-5 ml-auto size-8" @click="close" />
         <nav aria-label="Основная навигация">
           <template v-for="dropdown in dropdowns" :key="dropdown.text">
             <p class="mt-8 text-[10px] tracking-wider text-foreground-muted uppercase">{{ dropdown.text }}</p>
