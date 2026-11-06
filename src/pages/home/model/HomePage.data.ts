@@ -1,3 +1,4 @@
+import type { ContactFormProps } from '~/widgets/contact-form'
 import type { AdvantagesBlockProps } from '~/widgets/advantages'
 import type { HeroBlockProps } from '~/widgets/home/hero'
 import type { VideoBlockProps } from '~/widgets/home/video'
@@ -12,6 +13,7 @@ import type { FactsBlockProps } from '~/widgets/facts-block'
 import type { EventsHsseProps } from '~/widgets/home/events-hsse'
 import type { FaqBlockProps } from '~/widgets/home/faq-block'
 import { typograf } from '~/shared/lib/typograf'
+
 
 export const hero: HeroBlockProps = {
   title: typograf('Высшая школа программной инженерии'),
@@ -428,4 +430,10 @@ export const faq: FaqBlockProps = {
       ],
     },
   ],
+}
+
+export const contactForm: ContactFormProps = {
+  title: typograf('Мы ответим на все вопросы!'),
+  image: '/images/callcenter.webp',
+  privacyUrl: '/files/Политика-обработки-персональных-данных-МФТИ.pdf',
 }

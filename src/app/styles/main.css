@@ -15,6 +15,7 @@
   --color-foreground: #f1e9e0;
   --color-foreground-muted: #b8b1a2;
   --color-stroke: #4a4a4a;
+  --color-error: #f00;
 }
 
 html {

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { admissionOverview, admissionPaths, advantages, bestProjects, educationCareer, eventsHsse, factsBlocks, faq, hero, partners, peopleSlider, projectPractice, video } from '../model/HomePage.data'
+import { contactForm, admissionOverview, admissionPaths, advantages, bestProjects, educationCareer, eventsHsse, factsBlocks, faq, hero, partners, peopleSlider, projectPractice, video } from '../model/HomePage.data'
+import { ContactForm } from '~/widgets/contact-form'
 import { AdvantagesBlock } from '~/widgets/advantages'
 import { HeroBlock } from '~/widgets/home/hero'
 import { VideoBlock } from '~/widgets/home/video'
@@ -29,4 +30,5 @@ import { FaqBlock } from '~/widgets/home/faq-block'
   <FactsBlock v-for="block in factsBlocks" :key="block.title" v-bind="block" />
   <EventsHsse v-bind="eventsHsse" />
   <FaqBlock v-bind="faq" />
+  <ContactForm v-bind="contactForm" />
 </template>
